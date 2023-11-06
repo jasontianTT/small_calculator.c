@@ -178,10 +178,31 @@ void mode8() {
 }
 
 void mode9() {
-	printf("当前模式：除法 \n  输入：");
-
-
-
+	int num;
+	int total=0;
+	int check;
+	printf("当前模式：计算从1到输入数之间的奇数和 \n  输入(正整数)：");
+	scanf("%d",&num);
+	printf("输出：");
+	check = num % 2;
+	if (num > 0&&check==0) {
+		for (num=num - 1; num > 0; num = num - 2) {
+			if (num > 0) {
+				total = total + num;
+			}
+		}
+	}
+	else if (num > 0 && check == 1) {
+		for (num = num - 2; num > 0; num = num - 2) {
+			if (num > 0) {
+				total = total + num;
+			}
+		}
+	}
+	else {
+		printf("请输入符合要求的数字！（正整数）\n\n");
+	}
+	printf("和：%d\n\n", total);
 	loop = 1;
 }
 
