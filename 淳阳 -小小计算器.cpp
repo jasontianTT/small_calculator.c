@@ -207,9 +207,31 @@ void mode9() {
 }
 
 void mode10() {
-	printf("当前模式：除法 \n  输入：");
-
-
+	int num;
+	int total = 0;
+	int check;
+	printf("当前模式：计算从1到输入数之间的偶数和 \n  输入(正整数)：");
+	scanf("%d", &num);
+	printf("输出：");
+	check = num % 2;
+	if (num > 0 && check == 0) {
+		num = num - 2;
+		while (num > 0) {
+			total = total + num;
+			num = num - 2;
+		}
+	}
+	else if (num > 0 && check == 1) {
+		num = num - 1;
+		while(num>0) {
+			total = total + num;
+			num = num - 2;
+		}
+	}
+	else {
+		printf("请输入符合要求的数字！（正整数）\n\n");
+	}
+	printf("和：%d\n\n", total);
 
 	loop = 1;
 }
