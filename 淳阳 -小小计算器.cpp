@@ -144,14 +144,78 @@ void mode7() {
 	loop = 1;
 }
 
+void mode8() {
+	float score;
+	printf("当前模式：成绩转换 \n  输入（百分制的成绩）：");
+	scanf("%f", &score);
+	printf("输出：");
+	if (score < 0 || score >100) {
+		printf("成绩输入错误!\n\n");
+	}
+	else {
+		if (100 >= score && score >= 90) {
+			printf("优秀\n\n");
+		}
+		else if (90 > score && score >= 80) {
+			printf("良\n\n");
+		}
+		else if (80 > score && score >= 70) {
+			printf("中\n\n");
+		}
+		else if (70 > score && score >= 60){
+			printf("及格\n\n");
+		}
+		else if (60 > score && score >= 0) {
+			printf("不及格\n\n");
+		}
+		else {
+			printf("error!");
+		}
+
+	}
+
+	loop = 1;
+}
+
+void mode9() {
+	printf("当前模式：除法 \n  输入：");
+
+
+
+	loop = 1;
+}
+
+void mode10() {
+	printf("当前模式：除法 \n  输入：");
+
+
+
+	loop = 1;
+}
+void mode11() {
+	printf("当前模式：除法 \n  输入：");
+
+
+
+	loop = 1;
+}
+
+void mode12() {
+	printf("当前模式：除法 \n  输入：");
+
+
+
+	loop = 12;
+}
 
 
 int main()
 {
 
-	while (0 <=mode && mode <=24 ) {
-		if (mode == 0) {
+	while (0 <= mode && mode <= 24) {
+		switch (mode) {
 
+		case 0:
 			printf(" ***********************************\n");
 			printf(" *          小小计算器             *\n");
 			printf(" *          1 加法                 *\n");
@@ -161,39 +225,57 @@ int main()
 			printf(" *          5 判断数字位数         *\n");
 			printf(" *          6 计算圆面积           *\n");
 			printf(" *          7 判断闰年             *\n");
+			printf(" *          8 成绩转换             *\n");
 			printf(" ***********************************\n");
 			printf("请选择模式（输入数字）：");
 			scanf("%d", &mode);
-			printf("%d",mode);
+			printf("%d", mode);
 			system("cls");
 			loop = 0;
-		}
-		else if (mode == 1) {
+			break;
+
+		case 1:
 			plus();
-		}
-		else if (mode == 2) {
+			break;
+		case 2:
 			min();
-		}
-		else if (mode == 3) {
+			break;
+		case 3:
 			mult();
-		}
-		else if (mode == 4) {
+			break;
+		case 4:
 			dvd();
-		}
-		else if (mode == 5) {
+			break;
+		case 5:
 			mode5();
-		}
-		else if (mode == 6) {
+			break;
+		case 6:
 			mode6();
-		}
-		else if (mode == 7) {
+			break;
+		case 7:
 			mode7();
-		}
-		else {
+			break;
+		case 8:
+			mode8();
+			break;
+		case 9:
+			mode9();
+			break;
+		case 10:
+			mode10();
+			break;
+		case 11:
+			mode11();
+			break;
+		case 12:
+			mode12();
+			break;
+		default:
 			printf("无法识别的选项");
 			mode = 0;
 			break;
 		}
+
 		if (loop) {
 			printf("按下回车继续使用此模式，或输入其它任意内容返回主菜单:");
 			getchar();
@@ -202,8 +284,9 @@ int main()
 			if (strlen(input) != 1 && input[0] != '\n') {
 				mode = 0;
 			}
+			printf("\n");
 		}
-
+		
 	}
 	return 0;
 }
