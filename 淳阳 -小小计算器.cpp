@@ -235,6 +235,7 @@ void mode10() {
 
 	loop = 1;
 }
+
 void mode11() {
 	printf("当前模式：除法 \n  输入：");
 
