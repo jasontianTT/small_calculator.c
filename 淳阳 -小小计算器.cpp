@@ -58,6 +58,7 @@ void dvd() {
 	loop = 1;
 
 }
+
 void mode5(){
 			printf("当前模式：判断数字的位数(三位以内正整数) \n  输入：");
 			int num;
