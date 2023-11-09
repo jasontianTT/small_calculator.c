@@ -268,8 +268,6 @@ void mode12() {
 	float num0=0;
 	float num1;
 	float num2;
-	float result;
-	float check;
 	int out = 0;
 	printf("当前模式：求即被3整除又被5整除的数 \n  输入(两个数)：");
 	scanf("%f,%f", &num1, &num2);
@@ -355,13 +353,22 @@ void mode14() {
 	loop = 1;
 }
 
+void module15_1(int first, int second) {
+	int temp;
+	if (first < second) {
+		temp = second;
+		second = first;
+		first = temp;
+	}
+}
+
 void mode15() {
-	printf("当前模式：求最大值 \n  输入：");
-	printf("输出：");
-
-
-
-
+	int f;
+	int s;
+	printf("当前模式：求最大最小值 \n  输入(两个整数)：");
+	scanf("%d,%d", &f, &s);
+	module15_1(f, s);
+	printf("输出：\n 最大值：%d \n 最小值：%d \n",f,s); 
 	loop = 1;
 }
 
