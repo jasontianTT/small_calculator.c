@@ -267,11 +267,49 @@ void mode11() {
 }
 
 void mode12() {
-	printf("当前模式：除法 \n  输入：");
+	float num0=0;
+	float num1;
+	float num2;
+	float result;
+	float check;
+	int out = 0;
+	printf("当前模式：求即被3整除又被5整除的数 \n  输入(两个数)：");
+	scanf("%f,%f", &num1, &num2);
+	if (num1 > num2) {
+		num0 = num2;
+		num1 = num2;
+		num1 = num0;
+	}
+	if (num1 < num2){
+		int inum1 = (int)num1;
+		if (inum1 != num1) {
+			num1 = num1 + 0.5;
+			int inum1 = (int)num1;
+
+		}
+		do {
+			int check3;
+			int check5;
+			check3 = inum1 % 3;
+			check5 = inum1 % 5;
+			if (check3 == 0 && check5 == 0) {
+				printf("输出：%d \n\n", inum1);
+				out = 1;
+				break;
+			}
+			inum1++;
+		} while (inum1 < num2);
+		if (out == 0) {
+			printf("输入的两个数之间未找到既能被3整除又能被5整除的\n\n");
+		}
+	}
+	else {
+		printf("请输入符合要求的数字！\n\n");
+	}
 
 
 
-	loop = 12;
+	loop = 1;
 }
 
 
