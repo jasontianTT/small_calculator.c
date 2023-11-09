@@ -334,116 +334,6 @@ void mode13() {
 	loop = 1;
 }
 
-void mode14() {
-	printf("当前模式：求最大值 \n  输入：");
-	printf("输出：");
-	
-	
-	
-	
-	loop = 1;
-}
-
-void mode15() {
-	printf("当前模式：求最大值 \n  输入：");
-	printf("输出：");
-
-
-
-
-	loop = 1;
-}
-
-void mode16() {
-	printf("当前模式：求最大值 \n  输入：");
-	printf("输出：");
-
-
-
-
-	loop = 1;
-}
-
-void mode17() {
-	printf("当前模式：求最大值 \n  输入：");
-	printf("输出：");
-
-
-
-
-	loop = 1;
-}
-
-void mode18() {
-	printf("当前模式：求最大值 \n  输入：");
-	printf("输出：");
-
-
-
-
-	loop = 1;
-}
-
-void mode19() {
-	printf("当前模式：求最大值 \n  输入：");
-	printf("输出：");
-
-
-
-
-	loop = 1;
-}
-
-void mode20() {
-	printf("当前模式：求最大值 \n  输入：");
-	printf("输出：");
-
-
-
-
-	loop = 1;
-}
-
-void mode21() {
-	printf("当前模式：求最大值 \n  输入：");
-	printf("输出：");
-
-
-
-
-	loop = 1;
-}
-
-void mode22() {
-	printf("当前模式：求最大值 \n  输入：");
-	printf("输出：");
-
-
-
-
-	loop = 1;
-}
-
-void mode23() {
-	printf("当前模式：求最大值 \n  输入：");
-	printf("输出：");
-
-
-
-
-	loop = 1;
-}
-
-void mode24() {
-	printf("当前模式：求最大值 \n  输入：");
-	printf("输出：");
-
-
-
-
-	loop = 1;
-}
-
 
 int main()
 {
@@ -467,17 +357,7 @@ int main()
 			printf(" *                   11 输出从1到输入数之间所有3的倍数  *\n");
 			printf(" *                   12 求即被3整除又被5整除的数        *\n");
 			printf(" *                   13 求水仙花数                      *\n");
-			printf(" *                   14 求最大值                        *\n");
-			printf(" *                   15 求最大最小值                    *\n");
-			printf(" *                   16 冒泡排序                        *\n");
-			printf(" *                   17 矩阵转置                        *\n");
-			printf(" *                   18 求对角线和                      *\n");
-			printf(" *                   19 统计单词个数                    *\n");
-			printf(" *                   20 静态创建链表                    *\n");
-			printf(" *                   21 动态创建链表                    *\n");
-			printf(" *                   22 学生成绩排序                    *\n");
-			printf(" *                   23 学生成绩普涨10分                *\n");
-			printf(" *                   24 学生成绩链表                    *\n");
+			printf(" *                   14 成绩转换                        *\n");
 			printf(" ********************************************************\n");
 			printf("请选择模式（输入数字）：");
 			scanf("%d", &mode);
@@ -524,39 +404,6 @@ int main()
 			break;
 		case 13:
 			mode13();
-			break;
-		case 14:
-			mode14();
-			break;
-		case 15:
-			mode15();
-			break;
-		case 16:
-			mode16();
-			break;
-		case 17:
-			mode17();
-			break;
-		case 18:
-			mode18();
-			break;
-		case 19:
-			mode19();
-			break;
-		case 20:
-			mode20();
-			break;
-		case 21:
-			mode21();
-			break;
-		case 22:
-			mode22();
-			break;
-		case 23:
-			mode23();
-			break;
-		case 24:
-			mode24();
 			break;
 		default:
 			printf("无法识别的选项");
