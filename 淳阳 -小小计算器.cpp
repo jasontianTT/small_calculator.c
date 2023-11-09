@@ -192,6 +192,7 @@ void mode9() {
 				total = total + num;
 			}
 		}
+		printf("和：%d\n\n", total);
 	}
 	else if (num > 0 && check == 1) {
 		for (num = num - 2; num > 0; num = num - 2) {
@@ -199,11 +200,12 @@ void mode9() {
 				total = total + num;
 			}
 		}
+		printf("和：%d\n\n", total);
 	}
 	else {
 		printf("请输入符合要求的数字！（正整数）\n\n");
 	}
-	printf("和：%d\n\n", total);
+
 	loop = 1;
 }
 
@@ -221,6 +223,7 @@ void mode10() {
 			total = total + num;
 			num = num - 2;
 		}
+		printf("和：%d\n\n", total);
 	}
 	else if (num > 0 && check == 1) {
 		num = num - 1;
@@ -228,20 +231,38 @@ void mode10() {
 			total = total + num;
 			num = num - 2;
 		}
+		printf("和：%d\n\n", total);
 	}
 	else {
 		printf("请输入符合要求的数字！（正整数）\n\n");
 	}
-	printf("和：%d\n\n", total);
+
 
 	loop = 1;
 }
 
 void mode11() {
-	printf("当前模式：除法 \n  输入：");
+	int num;
+	int check;
+	printf("当前模式：输出从1到输入数之间所有3的倍数 \n  输入(正整数)：");
+	scanf("%d", &num);
+	printf("输出：");
+	if (num > 0) {
+		check = num % 3;
+		if (check == 0) {
+			check = check + 3;
+		}
+		num = num - check;
 
-
-
+		do {
+			printf("%d  ", num);
+			num = num - 3;
+		} while (num > 1);
+		printf("\n\n");
+	}
+	else {
+		printf("请输入符合要求的数字！（正整数）\n\n");
+	}
 	loop = 1;
 }
 
@@ -277,7 +298,7 @@ int main()
 			printf(" *                   12 求即被3整除又被5整除的数        *\n");
 			printf(" *                   13 求水仙花数                      *\n");
 			printf(" *                   14 成绩转换                        *\n");
-			printf(" ***********************************\n");
+			printf(" ********************************************************\n");
 			printf("请选择模式（输入数字）：");
 			scanf("%d", &mode);
 			printf("%d", mode);
