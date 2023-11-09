@@ -334,12 +334,23 @@ void mode13() {
 	loop = 1;
 }
 
+int module14_1(int a,int b) {
+	int max;
+	if (a > b) {
+		max = a;
+	}
+	else {
+		max = b;
+	}
+	return max;
+}
+
 void mode14() {
-	printf("当前模式：求最大值 \n  输入：");
-	printf("输出：");
-	
-	
-	
+	int f;
+	int s;
+	printf("当前模式：求最大值 \n  输入(两个整数)：");
+	scanf("%d,%d", &f, &s);
+	printf("输出最大值：%d \n\n", module14_1(f, s));
 	
 	loop = 1;
 }
