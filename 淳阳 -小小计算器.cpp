@@ -236,8 +236,6 @@ void mode10() {
 	else {
 		printf("请输入符合要求的数字！（正整数）\n\n");
 	}
-
-
 	loop = 1;
 }
 
@@ -306,9 +304,33 @@ void mode12() {
 	else {
 		printf("请输入符合要求的数字！\n\n");
 	}
+	loop = 1;
+}
 
+void mode13() {
+	int num = 100;
+	int num1=0;
+	int num10=0;
+	int num100=1;
+	printf("当前模式：求水仙花数（无需输入） \n  ");
+	printf("输出：\n");
+	while (num<=999) {
+		for (num10 = 0; num100 <= 9; num100++) {
+			num10 = 0;
+			for (num1 = 0; num10 <= 9; num10++) {
+				num1 = 0;
+				for (; num1 <= 9; num1++) {
+					if (num == num1 * num1 * num1 + num10 * num10 * num10 + num100 * num100 * num100) {
+						printf(" %d ",num);
+					}
+					num++;
+				}
+			}
+		}
 
+	}
 
+	printf("\n\n");
 	loop = 1;
 }
 
@@ -379,6 +401,9 @@ int main()
 			break;
 		case 12:
 			mode12();
+			break;
+		case 13:
+			mode13();
 			break;
 		default:
 			printf("无法识别的选项");
