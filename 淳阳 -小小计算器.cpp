@@ -369,16 +369,56 @@ void mode15() {
 	scanf("%d,%d", &f, &s);
 	module15_1(f, s);
 	printf("输出：\n 最大值：%d \n 最小值：%d \n",f,s); 
+
 	loop = 1;
 }
 
 void mode16() {
-	printf("当前模式：求最大值 \n  输入：");
-	printf("输出：");
+	int arr[10];
+	int num = 1;
+	printf("当前模式：冒泡排序 \n  输入(10个数)：\n");
+	for (int i = 0; i < 10; i++) {
+		printf("第%d个数：", num);
+		num++;
+		scanf("%d", &arr[i]);
+	}
+	printf("将被排序的十个数：");
+	for (int i = 0; i < 10; i++) {
+		printf(" %d ", arr[i]);
+		if (i < 9) {
+			printf(",");
+		}
+	}
+	printf("\n输出：");
+	int stop = 0;
+	int times=0;
+	while (stop == 0) {
+		int i = 0;
+		times = 0;
+		for (; i + 1 < 10; i++) {
+			int first = arr[i];
+			int second = arr[i + 1];
+			if (first > second) {
+				arr[i] = second;
+				arr[i + 1] = first;
+			}
+			else {
+				times++;
+				if (times == 9) {
+					stop = 1;
+				}
+			}
 
 
-
-
+		}
+	}
+	for (int i = 0; i < 10; i++) {
+		printf(" %d ", arr[i]);
+		if (i < 9) {
+			printf(",");
+		}
+	}
+	printf("\n\n");
 	loop = 1;
 }
 
