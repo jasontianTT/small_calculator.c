@@ -180,7 +180,7 @@ void mode8() {
 
 void mode9() {
 	int num;
-	int total=0;
+	int sum=0;
 	int check;
 	printf("当前模式：计算从1到输入数之间的奇数和 \n  输入(正整数)：");
 	scanf("%d",&num);
@@ -189,18 +189,18 @@ void mode9() {
 	if (num > 0&&check==0) {
 		for (num=num - 1; num > 0; num = num - 2) {
 			if (num > 0) {
-				total = total + num;
+				sum = sum + num;
 			}
 		}
-		printf("和：%d\n\n", total);
+		printf("和：%d\n\n", sum);
 	}
 	else if (num > 0 && check == 1) {
 		for (num = num - 2; num > 0; num = num - 2) {
 			if (num > 0) {
-				total = total + num;
+				sum = sum + num;
 			}
 		}
-		printf("和：%d\n\n", total);
+		printf("和：%d\n\n", sum);
 	}
 	else {
 		printf("请输入符合要求的数字！（正整数）\n\n");
@@ -211,7 +211,7 @@ void mode9() {
 
 void mode10() {
 	int num;
-	int total = 0;
+	int sum = 0;
 	int check;
 	printf("当前模式：计算从1到输入数之间的偶数和 \n  输入(正整数)：");
 	scanf("%d", &num);
@@ -220,18 +220,18 @@ void mode10() {
 	if (num > 0 && check == 0) {
 		num = num - 2;
 		while (num > 0) {
-			total = total + num;
+			sum = sum + num;
 			num = num - 2;
 		}
-		printf("和：%d\n\n", total);
+		printf("和：%d\n\n", sum);
 	}
 	else if (num > 0 && check == 1) {
 		num = num - 1;
 		while(num>0) {
-			total = total + num;
+			sum = sum + num;
 			num = num - 2;
 		}
-		printf("和：%d\n\n", total);
+		printf("和：%d\n\n", sum);
 	}
 	else {
 		printf("请输入符合要求的数字！（正整数）\n\n");
@@ -454,9 +454,27 @@ void mode17() {
 }
 
 void mode18() {
-	printf("当前模式：求最大值 \n  输入：");
-	printf("输出：");
-
+	int arr[3][3];
+	printf("当前模式：求主对角线和 \n  输入(3x3矩阵)：\n");
+	for (int i = 0; i < 3; i++) {  //copy from mode17
+		printf("请输入第%d行,\n ", i + 1);
+		for (int j = 0; j < 3; j++) {
+			printf(" 第%d个数字：", j + 1);
+			scanf("%d", &arr[i][j]);
+		}
+	}
+	printf("将要被处理的矩阵：\n");
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			printf(" %d ", arr[i][j]); //此处可优化为数字对齐（懒得做）
+		}
+		printf("\n");
+	}
+	int sum=0;
+	for (int i = 0; i < 3; i++) {
+		sum = sum + arr[i][i];
+	}
+	printf("和： %d \n\n",sum);
 
 
 
