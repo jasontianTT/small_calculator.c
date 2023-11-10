@@ -408,8 +408,6 @@ void mode16() {
 					stop = 1;
 				}
 			}
-
-
 		}
 	}
 	for (int i = 0; i < 10; i++) {
@@ -423,12 +421,35 @@ void mode16() {
 }
 
 void mode17() {
-	printf("当前模式：求最大值 \n  输入：");
-	printf("输出：");
-
-
-
-
+	int arr[3][4];
+	printf("当前模式：矩阵转置 \n  输入(3x4矩阵)：\n");
+	for (int i = 0; i < 3; i++) {
+		printf("请输入第%d行,\n ",i+1);
+		for (int j = 0; j < 4; j++) {
+			printf(" 第%d个数字：",j+1);
+			scanf("%d", &arr[i][j]);
+		}
+	}
+	printf("将要转置的矩阵：\n");
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 4; j++) {
+			printf(" %d ", arr[i][j]); //此处可优化为数字对齐（懒得做）
+		}
+		printf("\n");
+	}
+	int arr2[4][3];
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 4; j++) {
+			arr2[j][i] = arr[i][j];
+		}
+	}
+	printf("输出：\n");
+	for (int i = 0; i < 4; i++) {
+		for (int j = 0; j < 3; j++) {
+			printf(" %d ", arr2[i][j]);  //此处可优化为数字对齐（懒得做）
+		}
+		printf("\n");
+	}
 	loop = 1;
 }
 
@@ -536,6 +557,7 @@ int main()
 			printf(" *                   22 学生成绩排序                    *\n");
 			printf(" *                   23 学生成绩普涨10分                *\n");
 			printf(" *                   24 学生成绩链表                    *\n");
+			printf(" *                   25 退出                            *\n");
 			printf(" ********************************************************\n");
 			printf("请选择模式（输入数字）：");
 			scanf("%d", &mode);
