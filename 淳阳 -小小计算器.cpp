@@ -475,18 +475,25 @@ void mode18() {
 		sum = sum + arr[i][i];
 	}
 	printf("和： %d \n\n",sum);
-
-
-
 	loop = 1;
 }
 
 void mode19() {
-	printf("当前模式：求最大值 \n  输入：");
-	printf("输出：");
-
-
-
+	printf("当前模式：统计单词个数 \n  输入(一串字符)：");
+	int space = 0;
+	int stop = 0;
+	char s;
+	getchar();
+	while (stop==0) {
+		scanf("%c",&s);
+		if (s == 32) {
+			space++;
+		}
+		if (s == 10) {
+			stop=1;
+		}
+	}
+	printf("输出：\n 空格个数： %d \n\n",space);
 
 	loop = 1;
 }
