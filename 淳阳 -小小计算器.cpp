@@ -121,7 +121,7 @@ void mode7() {
 	int ifrun = 0;
 	int run;
 	scanf("%d", &yr);
-	run = yr / 100;
+	run = yr % 100;
 	if (run != 0) {
 		run = yr % 4;
 		if (run == 0) {
@@ -410,8 +410,10 @@ void mode16() {
 			}
 		}
 	}
+	int* p;
 	for (int i = 0; i < 10; i++) {
-		printf(" %d ", arr[i]);
+		p = &arr[i];
+		printf(" %d ", *p);
 		if (i < 9) {
 			printf(",");
 		}
@@ -499,7 +501,8 @@ void mode19() {
 }
 
 void mode20() {
-	printf("当前模式：求最大值 \n  输入：");
+	printf("当前模式：静态创建链表 \n  输入：");
+
 	printf("输出：");
 
 
@@ -509,7 +512,7 @@ void mode20() {
 }
 
 void mode21() {
-	printf("当前模式：求最大值 \n  输入：");
+	printf("当前模式：动态创建链表 \n  输入：");
 	printf("输出：");
 
 
@@ -519,7 +522,7 @@ void mode21() {
 }
 
 void mode22() {
-	printf("当前模式：求最大值 \n  输入：");
+	printf("当前模式：学生成绩排序 \n  输入：");
 	printf("输出：");
 
 
@@ -529,7 +532,7 @@ void mode22() {
 }
 
 void mode23() {
-	printf("当前模式：求最大值 \n  输入：");
+	printf("当前模式：学生成绩普涨10分 \n  输入：");
 	printf("输出：");
 
 
@@ -539,7 +542,7 @@ void mode23() {
 }
 
 void mode24() {
-	printf("当前模式：求最大值 \n  输入：");
+	printf("当前模式：学生成绩链表 \n  输入：");
 	printf("输出：");
 
 
