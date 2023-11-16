@@ -529,12 +529,46 @@ void mode20() {
 }
 
 void mode21() {
-	printf("当前模式：动态创建链表 \n  输入：");
-	printf("输出：");
+	struct ln {
+		int data;
+		struct ln* next;
+	};
+	struct ln* ptr= NULL ;
+	struct ln* head=NULL;
+	printf("当前模式：动态创建链表 \n  输入(正整数，输入负数时结束)：\n");
+	int input;
+	for (int i=1;i>0;i++) {
+		printf("请输入链表第%d项：", i);
+		getchar();
+		scanf("%d", &input);
+		if (input > 0) {
+			struct ln* newnode ;
+			newnode=(struct ln*)malloc(sizeof(struct ln));
+			newnode->next = NULL;
+			newnode->data = input;
+			if (ptr == NULL) {
+				head = newnode;
+				ptr = newnode;
+			}
+			else {
+				ptr->next = newnode;
+				ptr = newnode;
+			}
 
+		}
+		else {
+			i = -1;
+		}
+		
+	} 
 
-
-
+	printf("输出 (链表内容)：");
+	ptr = head;
+	while (ptr != NULL) {
+		printf(" %d ", ptr->data);
+		ptr = ptr->next;
+	}
+	printf("\n\n");
 	loop = 1;
 }
 
