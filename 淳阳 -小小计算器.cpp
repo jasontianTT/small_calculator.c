@@ -501,13 +501,30 @@ void mode19() {
 }
 
 void mode20() {
-	printf("当前模式：静态创建链表 \n  输入：");
+	printf("当前模式：静态创建链表 \n  无输入\n");
+	struct LinkNode {
+		int data;
+		struct LinkNode* next;
+	};
+	struct LinkNode node1 = { 111,NULL };
+	struct LinkNode node2 = { 222,NULL };
+	struct LinkNode node3 = { 333,NULL };
+	struct LinkNode node4 = { 444,NULL };
+	node1.next = &node2;
+	node2.next = &node3;
+	node3.next = &node4;
+	struct LinkNode* ptr = &node1;
 
-	printf("输出：");
+	printf("输出：\n");
+	int i = 0;
+	while (ptr!=NULL)
+	{
+		i++;
+		printf("第%d个节点的数据： %d \n",i, ptr->data);
 
-
-
-
+		ptr = ptr->next;
+	}
+	printf("\n\n");
 	loop = 1;
 }
 
