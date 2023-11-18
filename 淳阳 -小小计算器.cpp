@@ -573,11 +573,131 @@ void mode21() {
 }
 
 void mode22() {
-	printf("当前模式：学生成绩排序 \n  输入：");
-	printf("输出：");
+	struct stu {
+		int num;
+		char name[20];
+		int point;
+		struct stu* next;
 
+	};
+	struct stu* ptr= NULL;
+	struct stu* head = NULL;
+	struct stu* ptr0 = NULL;
+	struct stu* last = NULL;
+	printf("当前模式：学生成绩排序 \n  输入（依次为 学号，姓名，成绩 用逗号隔开）： \n");
+	for (int i = 1; i <= 10; i++) {
+		struct stu* newnode;
+		newnode = (struct stu*)malloc(sizeof(struct stu));
+		newnode->next = NULL;
+		printf("请输入第%d位学生的数据： \n",i);
+		getchar();
+		printf("学号：");
+		scanf("%d", &newnode->num);
+		printf("姓名：");
+		scanf("%s", &newnode->name);
+		printf("成绩：");
+		scanf("%d",&newnode->point); 
+		if (ptr == NULL) {
+			head = newnode;
+			ptr = newnode;
+		}
+		else {
+			ptr->next = newnode;
+			ptr = newnode;
+		}
+	}
+	
+	/*int stop = 0;
+	int times;
+	int sum;
+	while (stop == 0) {
+		int i = 1;
+		times = 1;
+		ptr = head;
+		for (; i  < 10; i++) {
+		
+			int first = ptr->point;
+			ptr0 = ptr;
+			ptr = ptr->next;
+			int second = ptr->point;
+			if (first > second) {
+				ptr0->point = second;
+				ptr->point = first;
+				
+			}
+			else {
+				times++;
+				if (times == 9) {
+					stop = 1;
+				}
+			}
+			
+		}
+	}*/
+	int stop = 0;
+	int times;
+	while (stop == 0) {
+		int i = 1;
+		times = 1;
+		ptr = head;
+		last = head;
+		for (; i < 10; i++) {
+			int first = ptr->point;
+			ptr0 = ptr;
+			ptr = ptr->next;
+			if (ptr == NULL) {
+				break;
+			}
+			int second = ptr->point;
+			if (first > second) {
+				if (i == 1) {
+					head = ptr;
+					ptr0->next = ptr->next;
+					head->next = ptr0;
+					ptr = ptr->next;
+					last = head;
+				}
+				else {
+					ptr0->next = ptr->next;
+					ptr->next = ptr0;
+					last->next = ptr;
+					last = ptr;
+					ptr = ptr0;
+				}
 
+			}
+			else {
+				times++;
+				if (i != 1) {
+					last = last->next;
+				}
+				if (times >= 9) {
+					stop = 1;
+				}
+			}
 
+		}
+		
+	}
+
+	printf("输出：\n");
+	printf("学生信息(按成绩排序)：\n");
+	ptr = head;
+	for (int i = 1; i < 11 && ptr != NULL ; i++ ) {
+		printf("%d. 学号：%d  ", i,ptr->num);
+		printf("姓名：%s  ", ptr->name);
+		printf("成绩：%d  \n", ptr->point);
+		ptr = ptr->next;
+	}
+	int sum = 0;
+	ptr = head;
+	printf("成绩排序： ");
+	for (int i = 1; i < 11 && ptr != NULL; i++) {
+		printf("%d   ", ptr->point);
+		sum = sum + ptr->point;
+		ptr = ptr->next;
+	}
+	printf("\n成绩和： %d \n\n", sum);
 
 	loop = 1;
 }
