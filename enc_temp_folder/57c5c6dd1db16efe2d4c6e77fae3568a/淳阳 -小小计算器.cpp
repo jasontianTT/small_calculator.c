@@ -705,21 +705,6 @@ void mode22() {
 void mode23() {
 	printf("当前模式：学生成绩普涨10分 \n  从D:\\my.txt 输入 \n");
     /*文件格式为： 首行“学号 姓名 成绩” 下面2-11行为三种数据对应的值（空格隔开）*/
-	//测试时使用的文件内容：
-	/*
-	学号 姓名 成绩
-	111 aaa 110
-	222 bbb 43
-	333 ccc 54
-	444 ddd 54
-	555 eee 65
-	666 fff 35
-	777 ggg 55
-	888 hhh 62
-	999 iii 61
-	000 jjj 55
-	*/
-	
 	FILE* file = fopen("D:\\my.txt", "r+"); 
 	char buff[50];
 	fgets(buff, 50, (FILE*)file);
@@ -740,10 +725,15 @@ void mode23() {
 	for (int i = 1; i < 11; i++) {
 		fseek(file, move[i-1], SEEK_CUR);
 		fprintf(file, "%d\n", point[i-1]);
+
 	}
+
+
+
 
 	fclose(file);
 	printf("已输出至D:\\my.txt \n\n");
+
 	
 	loop = 1;
 }
