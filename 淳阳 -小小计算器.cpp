@@ -749,11 +749,218 @@ void mode23() {
 }
 
 void mode24() {
-	printf("当前模式：学生成绩链表 \n  输入：");
-	printf("输出：");
+	int nodenum = 0;
+	struct stu {
+		int num;
+		char name[20];
+		int point;
+		struct stu* next;
+	};
+	struct stu* head = NULL;
+	struct stu* ptr = NULL;
+	printf("当前模式：学生成绩链表 \n  从D:\\my.txt 输入 \n");
+	FILE* file = fopen("D:\\my.txt", "r+");
+	char buff[50];
+	fgets(buff, 50, (FILE*)file);
 
-
-
+	for (int i = 1; i < 11; i++) {
+		struct stu* newnode;
+		newnode = (struct stu*)malloc(sizeof(struct stu));
+		nodenum++;
+		newnode->next = NULL;
+		fgets(buff, 50, (FILE*)file);
+		sscanf(buff, "%d %s %d", &newnode->num, newnode->name, &newnode->point);
+		if (i == 1) {
+			head = newnode;
+		}
+		else {
+			ptr->next = newnode;
+		}
+		ptr = newnode;
+		
+	}
+	ptr = head;
+	fclose(file);
+	printf("遍历输出链表内容(每行一个)：\n");
+	while (ptr != NULL) {
+		printf("%d,%s,%d \n", ptr->num, ptr->name, ptr->point);
+		ptr = ptr->next;
+	}
+	printf("\n");
+	ptr = head;
+	int ch = 1;
+	int f = 0;
+	int f2 = 0;
+	while (ch > 0 && ch < 6) {
+		printf("功能选择： \n1.遍历链表 \n2.节点查找 \n3.插入新节点 \n4.删除节点 \n5.清空节点 \n6.退出 \n 请输入：");
+		getchar();
+		scanf("%d", &ch);
+		if (ch == 1) {
+			printf("遍历输出链表内容(每行一个)：\n");
+			ptr = head;
+			while (ptr != NULL) {
+				printf("%d,%s,%d \n", ptr->num, ptr->name, ptr->point);
+				ptr = ptr->next;
+			}
+			printf("\n");
+		}
+		if (ch == 2) {
+			printf("选择： 1.按顺序查找 2.按学号查找 3.按姓名查找 4.按成绩查找 5.模糊查找 6.退出 \n请输入：");
+			getchar();
+			scanf("%d", &f);
+			if (f == 1) {
+				printf("当前节点数：%d\n",nodenum);
+				printf("请输入需要查看的节点序号(第一个节点为1)：");
+				scanf("%d", &f2);
+				if (f2 > 0 && f2 <= nodenum) {
+					ptr = head;
+					for (int i = 1; i <= f2; i++) {
+						if (i = f2 ) {
+							printf("第%d个节点内容 ： %d,%s,%d \n\n", f2,ptr->num, ptr->name, ptr->point);
+						}
+						ptr = ptr->next;
+				
+					}
+				}
+				else {
+					printf("error!");
+				}
+			}
+			if (f == 2) {
+				printf("请输入需要查找的学号：");
+				scanf("%d", &f2);
+				ptr = head;
+				for (int i = 1; i <= nodenum; i++) {
+					if (ptr->num == f2 ) {
+						printf("第%d个节点内容 ： %d,%s,%d \n\n", i, ptr->num, ptr->name, ptr->point);
+					}
+					ptr = ptr->next;
+				}
+			}
+			if (f == 3) {
+				printf("请输入需要查找的姓名：");
+				char strname[20];
+				scanf("%s", strname);
+				ptr = head;
+				for (int i = 1; i <= nodenum; i++) {
+					if (strcmp(ptr->name, strname) == 0 && ptr != NULL) {
+						printf("第%d个节点内容 ： %d,%s,%d \n\n", i, ptr->num, ptr->name, ptr->point);
+					}
+					ptr = ptr->next;
+				}
+			}
+			if (f == 4) {
+				printf("请输入需要查找的成绩：");
+				scanf("%d", &f2);
+				ptr = head;
+				for (int i = 1; i <= nodenum; i++) {
+					if (ptr->point == f2) {
+						printf("第%d个节点内容 ： %d,%s,%d \n\n", i, ptr->num, ptr->name, ptr->point);
+					}
+					ptr = ptr->next;
+				}
+			}
+			if (f == 5) {
+				printf("请输入需要查找的内容：");
+				char str[20];
+				char strnum[20];
+				char strpoint[20];
+				scanf("%s", str);
+				ptr = head;
+				for (int i = 1; i <= nodenum; i++) {
+					sprintf(strnum, "%d", ptr->num);
+					sprintf(strpoint, "%d", ptr->point);
+					if (strcmp(ptr->name, str) == 0 || strcmp(strnum, str) == 0 || strcmp(strpoint, str) == 0) {
+						printf("第%d个节点内容 ： %d,%s,%d \n\n", i, ptr->num, ptr->name, ptr->point);
+					}
+					ptr = ptr->next;
+				}
+			}
+		}
+		if (ch == 3) {
+			int id=0;
+			printf("当前节点数：%d\n", nodenum);
+			printf("新节点的序号(第一个节点为1)：");
+			getchar();
+			scanf("%d",&id);
+			if (id > 0 && id <= nodenum+1) {
+				struct stu* newnode;
+				newnode = (struct stu*)malloc(sizeof(struct stu));
+				newnode->next = NULL;
+				ptr = head;
+				if (id == 1) {
+					head = newnode;
+					newnode->next = ptr;
+				}
+				else if (id == 2) {
+					newnode->next = ptr->next;
+					ptr->next = newnode;
+				}
+				else {
+					int i = 2;
+					for (; i < id; i++) {
+						ptr = ptr->next;
+					}
+					newnode->next = ptr->next;
+					ptr->next = newnode;
+				}
+				nodenum++;
+				printf("请输入节点数据：\n学号：");
+				scanf("%d", &newnode->num);
+				printf("姓名：");
+				scanf("%s", newnode->name);
+				printf("成绩：");
+				scanf("%d", &newnode->point);
+				printf("\n");
+			}
+			else {
+				printf("error!");
+			}
+		}
+		if (ch == 4) {
+			int id = 0;
+			printf("当前节点数：%d\n", nodenum);
+			printf("需要删除的节点序号(第一个节点为1)：");
+			getchar();
+			scanf("%d", &id);
+			if (id > 0 && id <= nodenum + 1) {
+				if (id > 0 && id <= nodenum + 1) {
+					ptr = head;
+					if (id == 1) {
+						head = head->next;
+						free(ptr);
+					}
+					else if (id == 2) {
+						ptr = ptr->next;
+						head->next = ptr->next;
+						free(ptr);
+					}
+					else {
+						int i = 2;
+						for (; i < id; i++) {
+							ptr = ptr->next;
+						}
+						stu* temp = ptr->next;
+						ptr->next = temp->next;
+						free(temp);
+						nodenum--;
+					}
+				}
+			}
+		}
+		if (ch == 5) {
+			stu* temp;
+			ptr = head;
+			while (ptr != NULL) {
+				temp = ptr;
+				ptr = ptr->next;
+				free(temp);
+				nodenum--;
+			}
+			head = NULL;
+			printf("已清除链表所有节点！");
+		}
+	}
 
 	loop = 1;
 }
